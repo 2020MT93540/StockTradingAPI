@@ -1,21 +1,18 @@
-var express = require('express'), app = express(), port = process.env.port || 3000;
-
-app.listen(port);
-
-console.log("server started on " + port);
-
+var express = require('express'), app = express(), port = process.env.port || 3050;
 yahooStockPrices = require('./yahoo-stock-prices');
 
-async function getStocks() {
-	const data = await yahooStockPrices.getCurrentData('INFY');
-	console.log(data); // { currency: 'USD', price: 132.05 }
-}
+//app.listen(port);
+app.listen(port, () => console.log(`app listening on port ${port}!`));
+console.log("server started on " + port);
 
-app.get("/url", (req, res, next) => {
-	res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
+app.get("/", (req, res) => {
+	res.send("Welcome to StockTrading API");
 });
 
-app.get("/getCurrentPrice", (req, res, next) => {
-	getStocks();
+app.get("/getStockDetails/:stockName", async (req, res) => {
+	const data = await yahooStockPrices.getCurrentData(req.params.stockName);
+	res.send(data);
 });
+
+
 
