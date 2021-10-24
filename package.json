@@ -1,0 +1,26 @@
+{
+  "name": "stock-details-api",
+  "version": "1.0.0",
+  "description": "To get realtime stock prices from yahoo finance",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "npm run mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2020MT93540/stock-details-api.git"
+  },
+  "author": "vivek gopalan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2020MT93540/stock-details-api/issues"
+  },
+  "homepage": "https://github.com/2020MT93540/stock-details-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
